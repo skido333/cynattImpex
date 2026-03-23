@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cynatt Impex — Login / Register</title>
+      <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<section class="auth-section">
+  <div class="auth-left">
+    <div class="auth-brand">
+      <span style="font-size:3rem;">🛒</span>
+      <h2>Cynatt Impex</h2>
+      <p>Sign in to manage your orders, save your favourite products, and enjoy a personalised shopping experience.</p>
+    </div>
+    <div class="auth-perks">
+      <div class="perk"><span>✅</span><p>Track your orders in real time</p></div>
+      <div class="perk"><span>🏷️</span><p>Access exclusive member deals</p></div>
+      <div class="perk"><span>❤️</span><p>Save your favourite products</p></div>
+      <div class="perk"><span>🔒</span><p>Secure &amp; private account</p></div>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <!-- TAB TOGGLE -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Login</button>
+      <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="login-form" class="auth-form" novalidate>
+      <h3>Welcome Back</h3>
+      <p class="auth-sub">Sign in to your Cynatt Impex account.</p>
+      <div class="form-group">
+        <label for="l-email">Email Address *</label>
+        <input type="email" id="l-email" placeholder="you@email.com" required/>
+        <span class="err" id="err-l-email"></span>
+      </div>
+      <div class="form-group">
+        <label for="l-pass">Password *</label>
+        <div class="pw-wrap">
+          <input type="password" id="l-pass" placeholder="Enter your password" required/>
+          <button type="button" class="pw-toggle" onclick="togglePw('l-pass', this)">👁</button>
+        </div>
+        <span class="err" id="err-l-pass"></span>
+      </div>
+      <div class="form-row-inline">
+        <label class="check-label"><input type="checkbox" id="l-remember"/> Remember me</label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+        Sign In →
+      </button>
+      <p class="switch-hint">Don't have an account? <button type="button" class="link-btn" onclick="switchTab('register')">Register here</button></p>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="register-form" class="auth-form" style="display:none;" novalidate>
+      <h3>Create Account</h3>
+      <p class="auth-sub">Join Cynatt Impex and enjoy member benefits.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="r-fname">First Name *</label>
+          <input type="text" id="r-fname" placeholder="Kwame" required/>
+          <span class="err" id="err-r-fname"></span>
+        </div>
+        <div class="form-group">
+          <label for="r-lname">Last Name *</label>
+          <input type="text" id="r-lname" placeholder="Asante" required/>
+          <span class="err" id="err-r-lname"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="r-email">Email Address *</label>
+        <input type="email" id="r-email" placeholder="you@email.com" required/>
+        <span class="err" id="err-r-email"></span>
+      </div>
+      <div class="form-group">
+        <label for="r-phone">Phone Number</label>
+        <input type="tel" id="r-phone" placeholder="+233 0XX XXX XXXX"/>
+      </div>
+      <div class="form-group">
+        <label for="r-pass">Password *</label>
+        <div class="pw-wrap">
+          <input type="password" id="r-pass" placeholder="Min. 8 characters" required/>
+          <button type="button" class="pw-toggle" onclick="togglePw('r-pass', this)">👁</button>
+        </div>
+        <span class="err" id="err-r-pass"></span>
+        <div class="pw-strength" id="pw-strength"></div>
+      </div>
+      <div class="form-group">
+        <label for="r-pass2">Confirm Password *</label>
+        <div class="pw-wrap">
+          <input type="password" id="r-pass2" placeholder="Re-enter password" required/>
+          <button type="button" class="pw-toggle" onclick="togglePw('r-pass2', this)">👁</button>
+        </div>
+        <span class="err" id="err-r-pass2"></span>
+      </div>
+      <div class="form-group">
+        <label class="check-label"><input type="checkbox" id="r-agree" required/> I agree to the <a href="#" style="color:var(--green-mid);">Terms &amp; Conditions</a></label>
+        <span class="err" id="err-r-agree"></span>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
+        Create Account →
+      </button>
+      <p class="switch-hint">Already have an account? <button type="button" class="link-btn" onclick="switchTab('login')">Sign in here</button></p>
+    </form>
+
+    <!-- SUCCESS STATE -->
+    <div id="auth-success" style="display:none;" class="auth-success">
+      <span>🎉</span>
+      <h3 id="success-title">Welcome!</h3>
+      <p id="success-msg">You have successfully signed in.</p>
+      <a href="index.html" class="btn btn-primary" style="margin-top:20px;">Go to Homepage →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function switchTab(tab) {
+  document.getElementById('login-form').style.display    = tab === 'login'    ? 'block' : 'none';
+  document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
+
+function togglePw(id, btn) {
+  const inp = document.getElementById(id);
+  if (inp.type === 'password') { inp.type = 'text'; btn.textContent = '🙈'; }
+  else { inp.type = 'password'; btn.textContent = '👁'; }
+}
+
+// Password strength indicator
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('r-pass').addEventListener('input', function() {
+    const v = this.value;
+    const bar = document.getElementById('pw-strength');
+    let score = 0;
+    if (v.length >= 8) score++;
+    if (/[A-Z]/.test(v)) score++;
+    if (/[0-9]/.test(v)) score++;
+    if (/[^A-Za-z0-9]/.test(v)) score++;
+    const labels = ['', 'Weak', 'Fair', 'Good', 'Strong'];
+    const colors = ['', '#E74C3C', '#F39C12', '#2ECC71', '#1B4332'];
+    bar.textContent = v ? `Strength: ${labels[score]}` : '';
+    bar.style.color = colors[score];
+  });
+});
+
+// Login form
+document.getElementById('login-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  const email = document.getElementById('l-email').value.trim();
+  const pass  = document.getElementById('l-pass').value;
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  document.getElementById('err-l-email').textContent = email ? (emailOk ? '' : 'Enter a valid email.') : 'Email is required.';
+  document.getElementById('err-l-pass').textContent  = pass  ? '' : 'Password is required.';
+  if (!email || !emailOk || !pass) valid = false;
+
+  if (valid) {
+    this.style.display = 'none';
+    document.querySelector('.auth-tabs').style.display = 'none';
+    const s = document.getElementById('auth-success');
+    document.getElementById('success-title').textContent = 'Welcome Back!';
+    document.getElementById('success-msg').textContent = `You are now signed in as ${email}.`;
+    s.style.display = 'flex';
+  }
+});
+
+// Register form
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  const fname = document.getElementById('r-fname').value.trim();
+  const lname = document.getElementById('r-lname').value.trim();
+  const email = document.getElementById('r-email').value.trim();
+  const pass  = document.getElementById('r-pass').value;
+  const pass2 = document.getElementById('r-pass2').value;
+  const agree = document.getElementById('r-agree').checked;
+
+  document.getElementById('err-r-fname').textContent = fname ? '' : 'Required.';
+  document.getElementById('err-r-lname').textContent = lname ? '' : 'Required.';
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  document.getElementById('err-r-email').textContent = email ? (emailOk ? '' : 'Enter a valid email.') : 'Required.';
+  document.getElementById('err-r-pass').textContent  = pass.length >= 8 ? '' : 'Password must be at least 8 characters.';
+  document.getElementById('err-r-pass2').textContent = pass === pass2 ? '' : 'Passwords do not match.';
+  document.getElementById('err-r-agree').textContent = agree ? '' : 'You must agree to the terms.';
+
+  if (!fname || !lname || !email || !emailOk || pass.length < 8 || pass !== pass2 || !agree) valid = false;
+
+  if (valid) {
+    this.style.display = 'none';
+    document.querySelector('.auth-tabs').style.display = 'none';
+    const s = document.getElementById('auth-success');
+    document.getElementById('success-title').textContent = `Welcome, ${fname}!`;
+    document.getElementById('success-msg').textContent = 'Your account has been created successfully.';
+    s.style.display = 'flex';
+  }
+});
+
+// Check URL hash for #register
+if (window.location.hash === '#register') switchTab('register');
+</script>
+  <script src="main.js"></script>
+</body>
+</html>

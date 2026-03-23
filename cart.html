@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cynatt Impex — My Cart</title>
+      <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="page-banner">
+  <div class="container">
+    <p class="section-label">Your Selection</p>
+    <h1 class="section-title">Shopping Cart</h1>
+    <p>Review your items before placing your order.</p>
+  </div>
+</div>
+
+<section class="cart-section">
+  <div class="container">
+    <div class="cart-layout" id="cart-layout">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart();
+});
+
+function renderCart() {
+  const cart = getCart();
+  const layout = document.getElementById('cart-layout');
+
+  if (!cart.length) {
+    layout.innerHTML = `
+      <div class="empty-cart">
+        <span>🛒</span>
+        <h2>Your cart is empty</h2>
+        <p>You haven't added any products yet. Browse our store to find something you love!</p>
+        <a href="products.html" class="btn btn-primary">Browse Products &rarr;</a>
+      </div>`;
+    return;
+  }
+
+  const subtotal = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  const delivery = 10;
+  const total = subtotal + delivery;
+
+  layout.innerHTML = `
+    <div class="cart-items">
+      <h3 style="margin-bottom:20px;font-family:'Playfair Display',serif;color:var(--green-dark);">Cart Items (${cart.reduce((s,i)=>s+i.qty,0)})</h3>
+      ${cart.map(item => `
+        <div class="cart-item" id="item-${item.id}">
+          <div class="ci-emoji">${item.emoji}</div>
+          <div class="ci-info">
+            <strong>${item.name}</strong>
+            <span>GH₵ ${item.price.toFixed(2)} each</span>
+          </div>
+          <div class="ci-qty">
+            <button onclick="changeQty(${item.id}, -1)">−</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
+          <div class="ci-total">GH₵ ${(item.price * item.qty).toFixed(2)}</div>
+          <button class="ci-remove" onclick="removeItem(${item.id})" aria-label="Remove item">✕</button>
+        </div>
+      `).join('')}
+      <button class="btn btn-outline" style="margin-top:16px;" onclick="clearAll()">🗑 Clear Cart</button>
+    </div>
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-row"><span>Subtotal</span><span>GH₵ ${subtotal.toFixed(2)}</span></div>
+      <div class="summary-row"><span>Delivery Fee</span><span>GH₵ ${delivery.toFixed(2)}</span></div>
+      <div class="summary-row summary-total"><span>Total</span><span>GH₵ ${total.toFixed(2)}</span></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:24px;" onclick="checkout()">
+        Proceed to Checkout →
+      </button>
+      <a href="products.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:12px;">Continue Shopping</a>
+    </div>`;
+}
+
+function changeQty(id, delta) {
+  const cart = getCart();
+  const idx = cart.findIndex(i => i.id === id);
+  if (idx < 0) return;
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  saveCart(cart);
+  renderCart();
+}
+function removeItem(id) {
+  const cart = getCart().filter(i => i.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+function clearAll() {
+  if (confirm('Clear all items from your cart?')) {
+    saveCart([]);
+    renderCart();
+  }
+}
+function checkout() {
+  alert('✅ Order placed! Thank you for shopping at Cynatt Impex.\n\nOur team will contact you to confirm delivery.');
+  saveCart([]);
+  renderCart();
+}
+</script>
+  <script src="main.js"></script>
+</body>
+</html>

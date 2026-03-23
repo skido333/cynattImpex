@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cynatt Impex — Products</title>
+      <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="page-banner">
+  <div class="container">
+    <p class="section-label">Browse &amp; Shop</p>
+    <h1 class="section-title">Our Products</h1>
+    <p>Discover our full range of quality products at great prices.</p>
+  </div>
+</div>
+
+<section class="shop-section">
+  <div class="container">
+    <!-- Filters -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search products..."/>
+      </div>
+      <div class="filter-cats" id="filter-cats">
+        <button class="fcat active" data-cat="all">All</button>
+        <button class="fcat" data-cat="Produce">Produce</button>
+        <button class="fcat" data-cat="Dairy">Dairy</button>
+        <button class="fcat" data-cat="Bakery">Bakery</button>
+        <button class="fcat" data-cat="Beverages">Beverages</button>
+        <button class="fcat" data-cat="Household">Household</button>
+        <button class="fcat" data-cat="Personal Care">Personal Care</button>
+        <button class="fcat" data-cat="Snacks">Snacks</button>
+        <button class="fcat" data-cat="Canned">Canned</button>
+      </div>
+      <div class="sort-wrap">
+        <label for="sort-sel">Sort:</label>
+        <select id="sort-sel">
+          <option value="default">Default</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="results-count" id="results-count"></p>
+    <div class="products-grid" id="products-grid"></div>
+  </div>
+</section>
+
+  <script src="main.js"></script>
+</body>
+</html>
