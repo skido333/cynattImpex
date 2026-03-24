@@ -198,7 +198,7 @@ const ALL_PRODUCTS = [
   { id:10, image:'tomato.jpg', name:'Tomatoes (bag)',           cat:'Produce',      price:8.00,  tag:'Fresh' },
   { id:11, image:'cheese.jpg', name:'Cheese Slices (200g)',     cat:'Dairy',        price:22.00, tag:null },
   { id:12, image:'coke.jpg', name:'Coca-Cola (600ml)',        cat:'Beverages',    price:6.00,  tag:null },
-  { id:13, image:'Tasty-tome.jpg', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
+  { id:13, image:'Tasty-tom.jpg', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
   { id:14, image:'awake.jpg', name:'Bottled Water (1.5L)',     cat:'Beverages',    price:3.00,  tag:null },
   { id:15, image:'biscuit.jpg', name:'Biscuits (pack)',          cat:'Snacks',       price:6.00,  tag:null },
   { id:16, image:'liquidsoap.jpg', name:'Washing Up Liquid (1L)',   cat:'Household',    price:11.00, tag:null },
