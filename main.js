@@ -187,30 +187,29 @@ if (container) {
 // ── PRODUCTS PAGE ────────────────────────────────────────────
 // products.js
 const ALL_PRODUCTS = [
-  { id:1,  emoji:'milk.jpg', name:'Fresh Milk (1L)',         cat:'Dairy',        price:8.00,  tag:'Fresh' },
-  { id:2,  emoji:'breade.jpg', name:'Sliced Bread',             cat:'Bakery',       price:6.50,  tag:'Popular' },
-  { id:3,  emoji:'applee.jpg', name:'Red Apples (bag)',         cat:'Produce',      price:12.00, tag:'Fresh' },
-  { id:4,  emoji:'kalypoe.jpg', name:'Fruit Juice (250ml)',      cat:'Beverages',    price:5.00,  tag:'Deal' },
-  { id:5,  emoji:'egge.jpg', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
-  { id:6,  emoji:'broome.jpg', name:'Broom & Dustpan',         cat:'Household',    price:18.00, tag:null },
-  { id:7,  emoji:'handlotione.jpg', name:'Hand Lotion (200ml)',      cat:'Personal Care',price:14.00, tag:null },
-  { id:8,  emoji:'chocolatee.jpg', name:'Chocolate Bar',            cat:'Snacks',       price:4.50,  tag:'Deal' },
-  { id:9,  emoji:'carrote.jpg', name:'Carrots (500g)',           cat:'Produce',      price:5.00,  tag:'Fresh' },
-  { id:10, emoji:'tomatoe.jpg', name:'Tomatoes (bag)',           cat:'Produce',      price:8.00,  tag:'Fresh' },
-  { id:11, emoji:'cheesee.jpg', name:'Cheese Slices (200g)',     cat:'Dairy',        price:22.00, tag:null },
-  { id:12, emoji:'cokee.jpg', name:'Coca-Cola (600ml)',        cat:'Beverages',    price:6.00,  tag:null },
-  { id:13, emoji:'Tasty-tome.jpg', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
-  { id:14, emoji:'awakee.jpg', name:'Bottled Water (1.5L)',     cat:'Beverages',    price:3.00,  tag:null },
-  { id:15, emoji:'biscuit.jpg', name:'Biscuits (pack)',          cat:'Snacks',       price:6.00,  tag:null },
-  { id:16, emoji:'liquidsoape.jpg', name:'Washing Up Liquid (1L)',   cat:'Household',    price:11.00, tag:null },
-  { id:17, emoji:'barsoap.jpg', name:'Bar Soap (3-pack)',        cat:'Personal Care',price:9.00,  tag:'Deal' },
-  { id:18, emoji:'bananabunche.jpg', name:'Bananas (bunch)',          cat:'Produce',      price:7.00,  tag:'Fresh' },
-  { id:19, emoji:'groundnute.jpg', name:'Groundnuts (250g)',        cat:'Snacks',       price:5.50,  tag:null },
-  { id:20, emoji:'sardinee.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
-  { id:21, emoji:'milo', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
-  { id:22, emoji:'Trolle.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
-  { id:23, emoji:'tomatopastee.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
-  { id:24, emoji:'gele.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
+  { id:1,  image:'milk.jpg', name:'Fresh Milk (1L)',         cat:'Dairy',        price:8.00,  tag:'Fresh' },
+  { id:3, image:'applee.jpg', name:'Red Apples (bag)',         cat:'Produce',      price:12.00, tag:'Fresh' },
+  { id:4, image:'kalypoe.jpg', name:'Fruit Juice (250ml)',      cat:'Beverages',    price:5.00,  tag:'Deal' },
+  { id:5, image :'egge.jpg', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
+  { id:6,  image:'broome.jpg', name:'Broom & Dustpan',         cat:'Household',    price:18.00, tag:null },
+  { id:7,  image:'handlotione.jpg', name:'Hand Lotion (200ml)',      cat:'Personal Care',price:14.00, tag:null },
+  { id:8,  image:'chocolatee.jpg', name:'Chocolate Bar',            cat:'Snacks',       price:4.50,  tag:'Deal' },
+  { id:9,  image:'carrote.jpg', name:'Carrots (500g)',           cat:'Produce',      price:5.00,  tag:'Fresh' },
+  { id:10, image:'tomatoe.jpg', name:'Tomatoes (bag)',           cat:'Produce',      price:8.00,  tag:'Fresh' },
+  { id:11, image:'cheesee.jpg', name:'Cheese Slices (200g)',     cat:'Dairy',        price:22.00, tag:null },
+  { id:12, image:'cokee.jpg', name:'Coca-Cola (600ml)',        cat:'Beverages',    price:6.00,  tag:null },
+  { id:13, image:'Tasty-tome.jpg', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
+  { id:14, image:'awakee.jpg', name:'Bottled Water (1.5L)',     cat:'Beverages',    price:3.00,  tag:null },
+  { id:15, image:'biscuit.jpg', name:'Biscuits (pack)',          cat:'Snacks',       price:6.00,  tag:null },
+  { id:16, image:'liquidsoape.jpg', name:'Washing Up Liquid (1L)',   cat:'Household',    price:11.00, tag:null },
+  { id:17, image:'barsoap.jpg', name:'Bar Soap (3-pack)',        cat:'Personal Care',price:9.00,  tag:'Deal' },
+  { id:18, image:'bananabunche.jpg', name:'Bananas (bunch)',          cat:'Produce',      price:7.00,  tag:'Fresh' },
+  { id:19, image:'groundnute.jpg', name:'Groundnuts (250g)',        cat:'Snacks',       price:5.50,  tag:null },
+  { id:20, image:'sardinee.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
+  { id:21, image:'milo', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
+  { id:22, image:'Trolle.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
+  { id:23, image:'tomatopastee.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
+  { id:24, image:'gele.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
 ];
 
 let currentCat = 'all';
@@ -276,4 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   renderProducts();
 });
+.prod-img img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 
