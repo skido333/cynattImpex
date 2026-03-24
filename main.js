@@ -158,7 +158,7 @@ const featuredProducts = [
   { id: 1, image: 'milk.jpg', name: 'Fresh Milk (1L)', cat: 'Dairy', price: 'GH₵ 8.00', tag: 'Fresh', rawPrice: 8 },
   { id: 2, image: 'bread.jpg', name: 'Sliced Bread', cat: 'Bakery', price: 'GH₵ 6.50', tag: 'Popular', rawPrice: 6.5 },
   { id: 3, image: 'apple.jpg', name: 'Red Apples (bag)', cat: 'Produce', price: 'GH₵ 12.00', tag: 'Fresh', rawPrice: 12 },
-  { id: 4, image: 'kalypo.jpg', name: 'Fruit Juice (250ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
+  { id: 4, image: 'kalyppo.jpg', name: 'Fruit Juice (250ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
   { id: 5, image: 'egg.jpg', name: 'Eggs (tray of 30)', cat: 'Dairy', price: 'GH₵ 30.00', tag: 'Best Value', rawPrice: 30 },
   { id: 6, image: 'broom.jpg', name: 'Broom & Dustpan', cat: 'Household', price: 'GH₵ 18.00', tag: null, rawPrice: 18 },
   { id: 7, image: 'handlotion.jpg', name: 'Hand Lotion (200ml)', cat: 'Personal Care', price: 'GH₵ 14.00', tag: null, rawPrice: 14 },
@@ -190,7 +190,7 @@ const ALL_PRODUCTS = [
   { id:1,  image:'milk.jpg', name:'Fresh Milk (1L)',         cat:'Dairy',        price:8.00,  tag:'Fresh' },
   { id:3, image:'apple.jpg', name:'Red Apples (bag)',         cat:'Produce',      price:12.00, tag:'Fresh' },
   { id:4, image:'kalypoe.jpg', name:'Fruit Juice (250ml)',      cat:'Beverages',    price:5.00,  tag:'Deal' },
-  { id:5, image :'egge.jpg', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
+  { id:5, image :'egg.jpg', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
   { id:6,  image:'broom.jpg', name:'Broom & Dustpan',         cat:'Household',    price:18.00, tag:null },
   { id:7,  image:'handlotion.jpg', name:'Hand Lotion (200ml)',      cat:'Personal Care',price:14.00, tag:null },
   { id:8,  image:'chocolate.jpg', name:'Chocolate Bar',            cat:'Snacks',       price:4.50,  tag:'Deal' },
@@ -208,7 +208,7 @@ const ALL_PRODUCTS = [
   { id:20, image:'sardine.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
   { id:21, image:'milo.jpg', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
   { id:22, image:'Troll.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
-  { id:23, image:'tomatopaste.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
+  { id:23, image:'tomatopaste.jpeg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
   { id:24, image:'gel.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
 ];
 
