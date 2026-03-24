@@ -14,7 +14,7 @@
     <a href="index.html" class="nav-logo">
       <div class="logo-icon">🛒</div>
       <div class="logo-text">
-        <strong>Cynatt Impex</strong>
+        <strong>Cynaf Impex</strong>
         <span>Supermarket</span>
       </div>
     </a>
@@ -77,8 +77,8 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="#">📍 Kumasi, Ghana</a></li>
-          <li><a href="tel:+233000000000">📞 +233 (0) 000 000 000</a></li>
-          <li><a href="mailto:info@cynattimpex.com">✉️ info@cynattimpex.com</a></li>
+          <li><a href="tel:+233544735234">📞 +233 544 735 234</a></li>
+          <li><a href="mailto:info@cynattimpex.com">✉️ info@cynafimpex.com</a></li>
         </ul>
       </div>
     </div>
@@ -155,14 +155,14 @@ document.addEventListener('DOMContentLoaded', initNav);
 // ── HOME PAGE ────────────────────────────────────────────────
 // home.js — featured products
 const featuredProducts = [
-  { id: 1, emoji: '🥛', name: 'Fresh Milk (1L)', cat: 'Dairy', price: 'GH₵ 8.00', tag: 'Fresh', rawPrice: 8 },
-  { id: 2, emoji: '🍞', name: 'Sliced Bread', cat: 'Bakery', price: 'GH₵ 6.50', tag: 'Popular', rawPrice: 6.5 },
-  { id: 3, emoji: '🍎', name: 'Red Apples (bag)', cat: 'Produce', price: 'GH₵ 12.00', tag: 'Fresh', rawPrice: 12 },
-  { id: 4, emoji: '🧃', name: 'Fruit Juice (500ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
-  { id: 5, emoji: '🥚', name: 'Eggs (tray of 30)', cat: 'Dairy', price: 'GH₵ 30.00', tag: 'Best Value', rawPrice: 30 },
-  { id: 6, emoji: '🧹', name: 'Broom & Dustpan', cat: 'Household', price: 'GH₵ 18.00', tag: null, rawPrice: 18 },
-  { id: 7, emoji: '🧴', name: 'Hand Lotion (200ml)', cat: 'Personal Care', price: 'GH₵ 14.00', tag: null, rawPrice: 14 },
-  { id: 8, emoji: '🍫', name: 'Chocolate Bar', cat: 'Snacks', price: 'GH₵ 4.50', tag: 'Deal', rawPrice: 4.5 },
+  { id: 1, image: 'milk.jpg', name: 'Fresh Milk (1L)', cat: 'Dairy', price: 'GH₵ 8.00', tag: 'Fresh', rawPrice: 8 },
+  { id: 2, emoji: 'bread.jpg', name: 'Sliced Bread', cat: 'Bakery', price: 'GH₵ 6.50', tag: 'Popular', rawPrice: 6.5 },
+  { id: 3, emoji: 'apple.jpg', name: 'Red Apples (bag)', cat: 'Produce', price: 'GH₵ 12.00', tag: 'Fresh', rawPrice: 12 },
+  { id: 4, emoji: 'kalypo.jpg', name: 'Fruit Juice (250ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
+  { id: 5, emoji: 'egg', name: 'Eggs (tray of 30)', cat: 'Dairy', price: 'GH₵ 30.00', tag: 'Best Value', rawPrice: 30 },
+  { id: 6, emoji: 'broom.jpg', name: 'Broom & Dustpan', cat: 'Household', price: 'GH₵ 18.00', tag: null, rawPrice: 18 },
+  { id: 7, emoji: 'handlotion.jpg', name: 'Hand Lotion (200ml)', cat: 'Personal Care', price: 'GH₵ 14.00', tag: null, rawPrice: 14 },
+  { id: 8, emoji: 'chocolate.jpg', name: 'Chocolate Bar', cat: 'Snacks', price: 'GH₵ 4.50', tag: 'Deal', rawPrice: 4.5 },
 ];
 
 const container = document.getElementById('featured-products');
@@ -170,12 +170,14 @@ if (container) {
   container.innerHTML = featuredProducts.map(p => `
     <div class="prod-card">
       ${p.tag ? `<span class="prod-tag">${p.tag}</span>` : ''}
-      <div class="prod-emoji">${p.emoji}</div>
+      <div class="prod-img">
+      <img src="${p.image}" alt=${p.name}">
+      </div>
       <div class="prod-name">${p.name}</div>
       <div class="prod-cat">${p.cat}</div>
       <div class="prod-footer">
         <span class="prod-price">${p.price}</span>
-        <button class="add-btn" onclick="addToCart(${p.id}, '${p.name}', ${p.rawPrice}, '${p.emoji}')">+ Add</button>
+        <button class="add-btn" onclick="addToCart(${p.id}, '${p.name}', ${p.rawPrice}, '🛒')"
       </div>
     </div>
   `).join('');
@@ -185,30 +187,30 @@ if (container) {
 // ── PRODUCTS PAGE ────────────────────────────────────────────
 // products.js
 const ALL_PRODUCTS = [
-  { id:1,  emoji:'🥛', name:'Fresh Milk (1L)',         cat:'Dairy',        price:8.00,  tag:'Fresh' },
-  { id:2,  emoji:'🍞', name:'Sliced Bread',             cat:'Bakery',       price:6.50,  tag:'Popular' },
-  { id:3,  emoji:'🍎', name:'Red Apples (bag)',         cat:'Produce',      price:12.00, tag:'Fresh' },
-  { id:4,  emoji:'🧃', name:'Fruit Juice (500ml)',      cat:'Beverages',    price:5.00,  tag:'Deal' },
-  { id:5,  emoji:'🥚', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
-  { id:6,  emoji:'🧹', name:'Broom & Dustpan',         cat:'Household',    price:18.00, tag:null },
-  { id:7,  emoji:'🧴', name:'Hand Lotion (200ml)',      cat:'Personal Care',price:14.00, tag:null },
-  { id:8,  emoji:'🍫', name:'Chocolate Bar',            cat:'Snacks',       price:4.50,  tag:'Deal' },
-  { id:9,  emoji:'🥕', name:'Carrots (500g)',           cat:'Produce',      price:5.00,  tag:'Fresh' },
-  { id:10, emoji:'🍅', name:'Tomatoes (bag)',           cat:'Produce',      price:8.00,  tag:'Fresh' },
-  { id:11, emoji:'🧀', name:'Cheese Slices (200g)',     cat:'Dairy',        price:22.00, tag:null },
-  { id:12, emoji:'🥤', name:'Coca-Cola (600ml)',        cat:'Beverages',    price:6.00,  tag:null },
-  { id:13, emoji:'🫙', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
-  { id:14, emoji:'🧊', name:'Bottled Water (1.5L)',     cat:'Beverages',    price:3.00,  tag:null },
-  { id:15, emoji:'🍪', name:'Biscuits (pack)',          cat:'Snacks',       price:6.00,  tag:null },
-  { id:16, emoji:'🫧', name:'Washing Up Liquid (1L)',   cat:'Household',    price:11.00, tag:null },
-  { id:17, emoji:'🧼', name:'Bar Soap (3-pack)',        cat:'Personal Care',price:9.00,  tag:'Deal' },
-  { id:18, emoji:'🍌', name:'Bananas (bunch)',          cat:'Produce',      price:7.00,  tag:'Fresh' },
-  { id:19, emoji:'🥜', name:'Groundnuts (250g)',        cat:'Snacks',       price:5.50,  tag:null },
-  { id:20, emoji:'🫙', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
-  { id:21, emoji:'🍫', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
-  { id:22, emoji:'🧻', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
-  { id:23, emoji:'🥫', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
-  { id:24, emoji:'🛁', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
+  { id:1,  emoji:'milk.jpg', name:'Fresh Milk (1L)',         cat:'Dairy',        price:8.00,  tag:'Fresh' },
+  { id:2,  emoji:'breade.jpg', name:'Sliced Bread',             cat:'Bakery',       price:6.50,  tag:'Popular' },
+  { id:3,  emoji:'applee.jpg', name:'Red Apples (bag)',         cat:'Produce',      price:12.00, tag:'Fresh' },
+  { id:4,  emoji:'kalypoe.jpg', name:'Fruit Juice (250ml)',      cat:'Beverages',    price:5.00,  tag:'Deal' },
+  { id:5,  emoji:'egge.jpg', name:'Eggs (tray of 30)',        cat:'Dairy',        price:30.00, tag:'Best Value' },
+  { id:6,  emoji:'broome.jpg', name:'Broom & Dustpan',         cat:'Household',    price:18.00, tag:null },
+  { id:7,  emoji:'handlotione.jpg', name:'Hand Lotion (200ml)',      cat:'Personal Care',price:14.00, tag:null },
+  { id:8,  emoji:'chocolatee.jpg', name:'Chocolate Bar',            cat:'Snacks',       price:4.50,  tag:'Deal' },
+  { id:9,  emoji:'carrote.jpg', name:'Carrots (500g)',           cat:'Produce',      price:5.00,  tag:'Fresh' },
+  { id:10, emoji:'tomatoe.jpg', name:'Tomatoes (bag)',           cat:'Produce',      price:8.00,  tag:'Fresh' },
+  { id:11, emoji:'cheesee.jpg', name:'Cheese Slices (200g)',     cat:'Dairy',        price:22.00, tag:null },
+  { id:12, emoji:'cokee.jpg', name:'Coca-Cola (600ml)',        cat:'Beverages',    price:6.00,  tag:null },
+  { id:13, emoji:'Tasty-tome.jpg', name:'Canned Tomatoes',          cat:'Canned',       price:7.00,  tag:null },
+  { id:14, emoji:'awakee.jpg', name:'Bottled Water (1.5L)',     cat:'Beverages',    price:3.00,  tag:null },
+  { id:15, emoji:'biscuit.jpg', name:'Biscuits (pack)',          cat:'Snacks',       price:6.00,  tag:null },
+  { id:16, emoji:'liquidsoape.jpg', name:'Washing Up Liquid (1L)',   cat:'Household',    price:11.00, tag:null },
+  { id:17, emoji:'barsoap.jpg', name:'Bar Soap (3-pack)',        cat:'Personal Care',price:9.00,  tag:'Deal' },
+  { id:18, emoji:'bananabunche.jpg', name:'Bananas (bunch)',          cat:'Produce',      price:7.00,  tag:'Fresh' },
+  { id:19, emoji:'groundnute.jpg', name:'Groundnuts (250g)',        cat:'Snacks',       price:5.50,  tag:null },
+  { id:20, emoji:'sardinee.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
+  { id:21, emoji:'milo', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
+  { id:22, emoji:'Trolle.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
+  { id:23, emoji:'tomatopastee.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
+  { id:24, emoji:'gele.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
 ];
 
 let currentCat = 'all';
