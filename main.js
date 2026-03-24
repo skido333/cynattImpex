@@ -208,7 +208,7 @@ const ALL_PRODUCTS = [
   { id:20, image:'sardine.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
   { id:21, image:'milo.jpg', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
   { id:22, image:'Troll.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
-  { id:23, image:'tomatopaste.jpeg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
+  { id:23, image:'tomatopaste.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
   { id:24, image:'gel.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
 ];
 
