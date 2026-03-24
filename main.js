@@ -156,13 +156,13 @@ document.addEventListener('DOMContentLoaded', initNav);
 // home.js — featured products
 const featuredProducts = [
   { id: 1, image: 'milk.jpg', name: 'Fresh Milk (1L)', cat: 'Dairy', price: 'GH₵ 8.00', tag: 'Fresh', rawPrice: 8 },
-  { id: 2, emoji: 'bread.jpg', name: 'Sliced Bread', cat: 'Bakery', price: 'GH₵ 6.50', tag: 'Popular', rawPrice: 6.5 },
-  { id: 3, emoji: 'apple.jpg', name: 'Red Apples (bag)', cat: 'Produce', price: 'GH₵ 12.00', tag: 'Fresh', rawPrice: 12 },
-  { id: 4, emoji: 'kalypo.jpg', name: 'Fruit Juice (250ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
-  { id: 5, emoji: 'egg', name: 'Eggs (tray of 30)', cat: 'Dairy', price: 'GH₵ 30.00', tag: 'Best Value', rawPrice: 30 },
-  { id: 6, emoji: 'broom.jpg', name: 'Broom & Dustpan', cat: 'Household', price: 'GH₵ 18.00', tag: null, rawPrice: 18 },
-  { id: 7, emoji: 'handlotion.jpg', name: 'Hand Lotion (200ml)', cat: 'Personal Care', price: 'GH₵ 14.00', tag: null, rawPrice: 14 },
-  { id: 8, emoji: 'chocolate.jpg', name: 'Chocolate Bar', cat: 'Snacks', price: 'GH₵ 4.50', tag: 'Deal', rawPrice: 4.5 },
+  { id: 2, image: 'bread.jpg', name: 'Sliced Bread', cat: 'Bakery', price: 'GH₵ 6.50', tag: 'Popular', rawPrice: 6.5 },
+  { id: 3, image: 'apple.jpg', name: 'Red Apples (bag)', cat: 'Produce', price: 'GH₵ 12.00', tag: 'Fresh', rawPrice: 12 },
+  { id: 4, image: 'kalypo.jpg', name: 'Fruit Juice (250ml)', cat: 'Beverages', price: 'GH₵ 5.00', tag: 'Deal', rawPrice: 5 },
+  { id: 5, image: 'egg', name: 'Eggs (tray of 30)', cat: 'Dairy', price: 'GH₵ 30.00', tag: 'Best Value', rawPrice: 30 },
+  { id: 6, image: 'broom.jpg', name: 'Broom & Dustpan', cat: 'Household', price: 'GH₵ 18.00', tag: null, rawPrice: 18 },
+  { id: 7, image: 'handlotion.jpg', name: 'Hand Lotion (200ml)', cat: 'Personal Care', price: 'GH₵ 14.00', tag: null, rawPrice: 14 },
+  { id: 8, image: 'chocolate.jpg', name: 'Chocolate Bar', cat: 'Snacks', price: 'GH₵ 4.50', tag: 'Deal', rawPrice: 4.5 },
 ];
 
 const container = document.getElementById('featured-products');
@@ -171,13 +171,13 @@ if (container) {
     <div class="prod-card">
       ${p.tag ? `<span class="prod-tag">${p.tag}</span>` : ''}
       <div class="prod-img">
-      <img src="${p.image}" alt=${p.name}">
+      <img src="${p.image}" alt="${p.name}">
       </div>
       <div class="prod-name">${p.name}</div>
       <div class="prod-cat">${p.cat}</div>
       <div class="prod-footer">
         <span class="prod-price">${p.price}</span>
-        <button class="add-btn" onclick="addToCart(${p.id}, '${p.name}', ${p.rawPrice}, '🛒')"
+       <button class="add-btn" onclick="addToCart(${p.id}, '${p.name}', ${p.rawPrice}, '🛒')">+ Add</button>
       </div>
     </div>
   `).join('');
@@ -206,7 +206,7 @@ const ALL_PRODUCTS = [
   { id:18, image:'bananabunche.jpg', name:'Bananas (bunch)',          cat:'Produce',      price:7.00,  tag:'Fresh' },
   { id:19, image:'groundnute.jpg', name:'Groundnuts (250g)',        cat:'Snacks',       price:5.50,  tag:null },
   { id:20, image:'sardinee.jpg', name:'Sardines (can)',           cat:'Canned',       price:8.50,  tag:null },
-  { id:21, image:'milo', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
+  { id:21, image:'milo.jpg', name:'Milo (400g)',              cat:'Beverages',    price:28.00, tag:'Popular' },
   { id:22, image:'Trolle.jpg', name:'Toilet Roll (6-pack)',     cat:'Household',    price:16.00, tag:null },
   { id:23, image:'tomatopastee.jpg', name:'Tomato Paste (tin)',       cat:'Canned',       price:4.50,  tag:null },
   { id:24, image:'gele.jpg', name:'Shower Gel (250ml)',       cat:'Personal Care',price:16.00, tag:null },
@@ -235,7 +235,9 @@ function renderProducts() {
   grid.innerHTML = list.map(p => `
     <div class="prod-card">
       ${p.tag ? `<span class="prod-tag">${p.tag}</span>` : ''}
-      <div class="prod-emoji">${p.emoji}</div>
+      <div class="prod-image">
+      <img src="${p.image}" alt="${p.name}">
+      </div>
       <div class="prod-name">${p.name}</div>
       <div class="prod-cat">${p.cat}</div>
       <div class="prod-footer">
